@@ -17,7 +17,7 @@ function foldTo(distance) {
   if (distance < width)
     return 0;
 
-  return Math.log2(distance / width * 2) | 0;
+  console.log(Math.log2(distance / width * 2) | 0);
 }
 
 foldTo(384000000)
