@@ -8,27 +8,35 @@
 
 
 function tickets(peopleInLine){
-  let bank = 0;
-  let holdForChange = 0;
-  let even = 0;
-  peopleInLine.forEach((money) => {
-    if (money === 25) {
-      bank = bank + money
-    }
-    else {
-      holdForChange = holdForChange + money
-    }
-  })
+     let bill25  = 0,
+      bill50  = 0,
+      bill100 = 0
 
-  console.log(bank, 'bank');
-  console.log(holdForChange, 'holdForChange');
-  even = bank % holdForChange;
-  if (even === holdForChange/2) {
-    console.log('yes');
-  }
-  else {
-    console.log('no');
-  }
+  return peopleInLine.every(person => {
+    switch (person) {
+      case 25:
+        bill25 += 1
+        return true
+      case 50:
+        bill50 += 1
+        bill25 -= 1
+        return bill25 >= 0
+      case 100:
+        bill100 += 1
+        if (bill50 >= 1) {
+          bill50 -= 1
+          bill25 -= 1
+        } else bill25 -= 3
+        return bill50 >= 0 && bill25 >= 0
+    }
+  }) ? 'YES' : 'NO'
 }
 
-tickets([25, 100, 100])
+// tickets([25,25,25,100,25,25,25,100,25,25,50,100,25,50,25,100])
+// tickets([25,25,50,100,25,25,50,100,25,25,50,100,25,25,25,100,25,25,50,100,25,50,50,25])
+// tickets([25,25,50,100,25,25,50,100,25,25,50,100,25,50,25,100,25,25,25,100,100,100])
+// tickets([25,25,25,100,25,25,50,100,25,50,25,100,25,25,50,100,25,50,50,50])
+// tickets([25,25,25,100,25,50,25,100,25,25,25,100,50,25])
+tickets([25,25,50,50])
+tickets([25, 100])
+// tickets([25, 50])
