@@ -12,26 +12,18 @@
 // Find the unique string
 // Find The Unique
 //
-// function findUniq (arr){
-//   arr.forEach((x)=> {
-//     if (x !=arr[x]) {
-//       return x
-//     }
-//   })
-// }
-
 function findUniq(arr) {
-
-  let current;
-  let prev;
-  let arr1 = []
   let answer;
-
-  for (var i = 0; i < arr.length; i++) {
-    
-  }
-  console.log(arr1, 'arr1');
+  arr.sort()
+  arr.forEach((x)=>{
+    if (x != arr[1]) {
+      answer = x
+    }
+  })
+      return answer
 }
 
-// findUniq([ 0, 1, 0 ])
-findUniq([ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.55, 0, 0])
+
+findUniq([ 0, 1, 0 ])
+findUniq([ 1, 1, 1, 2, 1, 1 ])
+findUniq([ 3, 10, 3, 3, 3 ])
