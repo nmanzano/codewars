@@ -13,32 +13,17 @@
 // "" -> 0
 
 const longestPalindrome = function(s){
-  const wordSplit = s.split('')
-  const arr = []
-  const arrReverse = []
-  let newArr;
-  let newArrReverse;
-  let savedWords = []
+  var l = 0;
+   for (var i = 0; i<s.length; i++)
+     for(var j = i; j<=s.length; j++)
+       if(s.substring(i,j) === s.substring(i,j).split('').reverse().join('') && s.substring(i,j).length > l)
+         l = s.substring(i,j).length;
 
-  for (let x in wordSplit) {
-    let letter = wordSplit[x];
-
-    arr.push(letter);
-    newArr = arr.join('')
-
-    arrReverse.push(letter);
-    newArrReverse = arrReverse.reverse().join('')
-
-    if (newArr === newArrReverse) {
-      savedWords.push(newArr);
-    }
-
-  }
-
+   return l;
 }
 
-// longestPalindrome("a") //1
-// longestPalindrome("aa") //2
-// longestPalindrome("baa") //2
-// longestPalindrome("aab") //2
+longestPalindrome("a") //1
+longestPalindrome("aa") //2
+longestPalindrome("baa") //2
+longestPalindrome("baablkj12345432133d") //9
 longestPalindrome("zzbaabcd") //4
