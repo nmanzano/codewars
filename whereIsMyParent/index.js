@@ -11,11 +11,39 @@
 // https://www.codewars.com/kata/58539230879867a8cd00011c/train/javascript
 
 function findChildren(dancingBrigade){
-  return dancingBrigade.sort()
+  let capLetters = [];
+  let withOutCaps = [];
+  let final = [];
+  dancingBrigade.split('').forEach((x) => {
+    if (x === x.toUpperCase()) {
+      capLetters.push(x)
+    }
+    else {
+      withOutCaps.push(x)
+    }
+  });
 
-
-};
-
+  for(let x in capLetters){
+    capLetters.sort()
+    for(let y in withOutCaps){
+      if (!final.includes(capLetters[x])) {
+        final.push(capLetters[x])
+      }
+      if (capLetters[x] === withOutCaps[y].toUpperCase()) {
+        final.push(withOutCaps[y])
+      }
+    }
+  }
+  return final.join('');
+  }
 
 findChildren("beeeEBb"); //"BbbEeee"
-findChildren("uwwWUueEe"); // "EeeUuuWww"
+// findChildren("uwwWUueEe"); // "EeeUuuWww"
+
+
+//Alternative not done by me:
+// const findChildren = dancingBrigade =>
+//   dancingBrigade
+//     .split('')
+//     .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()) || b.localeCompare(a))
+//     .join('')
