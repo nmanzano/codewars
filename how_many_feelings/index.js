@@ -21,7 +21,6 @@
 //
 // Eeach letter in string participates in the formation of all feelings. 'angerw' -> 2 feelings: 'anger' and 'awe'.
 
-
 function countFeelings(string, array) {
   //good luck
   let count = 0;
