@@ -8,6 +8,7 @@
 
 function chained(functions) {
   //FIXME
+  console.log('i');
 }
 
 
