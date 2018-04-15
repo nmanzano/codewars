@@ -20,17 +20,23 @@
 //
 function bittyWords(words, bits) {
   bits = Number(bits).toString(2).split('');
-  // console.log(bits);
   words = words.split(' ')
+  let answer = []
+  while (bits.length < words.length) {
+    bits.unshift('0')
+  }
 
-  for(let x of words){
-    let wordsIndex = words.indexOf(x)
-    // console.log(wordsIndex);
-  for(let y of bits){
-    let bitsIndex = bits.ind
+  for(let x in words){
+    for(let y in bits){
+      if (x === y && bits[y] === '1') {
+        answer.push(words[x]);
+      }
+    }
   }
-  }
+  return (answer.join(' '));
 }
 
 
-bittyWords('Long live the king!', 11) // 'Long the king!'
+// bittyWords('Long live the king!', 11) // 'Long the king!');
+// bittyWords('Long live the king!', 0) // '');
+bittyWords('Long live the king!', 0b1111) // 'Long live the king!');
