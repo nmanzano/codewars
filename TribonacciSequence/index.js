@@ -19,19 +19,26 @@
 
 function tribonacci(signature,n){
   //your code here
-  let next = 0
+  let number = 0
+  let answer =[]
+  signature.forEach((x) => answer.push(x))
 
-  signature = signature.reduce(
-  function (
-    accumulator,
-    currentValue,
-    currentIndex,
-    array
-  ) {
-    return accumulator + currentValue;
+
+for (var i = 0; i < signature.length; i++) {
+  // console.log(signature[i])
+
+  number = number + signature[i]
+  console.log(number, 'number', i, 'i');
+
+  if (i === 2) {
+    answer.push(number)
+    console.log(answer,'answer');
+    signature.shift()
+    signature.push(number)
+    console.log(signature, 'signature');
   }
-);
-console.log(signature);
+
+}
 
   // for(let x of signature){
   //   next = next + x
