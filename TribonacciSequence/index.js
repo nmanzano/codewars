@@ -16,34 +16,33 @@
 //
 // [Personal thanks to Professor Jim Fowler on Coursera for his awesome classes that I really recommend to any math enthusiast and for showing me this mathematical curiosity too with his usual contagious passion :)]
 
-
 function tribonacci(signature,n){
-  //your code here
-  let number = 0
-  let answer =[]
-  signature.forEach((x) => answer.push(x))
-
-
-for (var i = 0; i < signature.length; i++) {
-  // console.log(signature[i])
-
-  number = number + signature[i]
-  console.log(number, 'number', i, 'i');
-
-  if (i === 2) {
-    answer.push(number)
-    console.log(answer,'answer');
-    signature.shift()
-    signature.push(number)
-    console.log(signature, 'signature');
+  // let answer = []
+  if (n === 1) {
+    return [1]
+  }
+  else if (n === 0) {
+    return []
   }
 
-}
+  let stage = []
+  let thirdNum = 0
+  signature.forEach((x) => stage.push(x))
 
-  // for(let x of signature){
-  //   next = next + x
-  // }
-  // console.log(next);
+  if (signature.length < n) {
+    while (signature.length < n) {
+      thirdNum = stage[0] + stage[1] + stage[2]
+      signature.push(thirdNum)
+      stage.push(thirdNum)
+      stage.shift()
+    }
+    return (signature);
+  }else {
+    while (signature.length > n) {
+      signature.pop()
+    }
+    return (signature);
+  }
 }
 
 
