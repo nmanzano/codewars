@@ -17,7 +17,6 @@
 // [Personal thanks to Professor Jim Fowler on Coursera for his awesome classes that I really recommend to any math enthusiast and for showing me this mathematical curiosity too with his usual contagious passion :)]
 
 function tribonacci(signature,n){
-  // let answer = []
   if (n === 1) {
     return [1]
   }
@@ -47,3 +46,12 @@ function tribonacci(signature,n){
 
 
 tribonacci([1,1,1],10) //[1,1,1,3,5,9,17,31,57,105]
+
+
+// not by me:
+// function tribonacci(sig,n){
+//   if(n < 3) return sig.slice(0,n)
+//   for(let i = 3; i < n; i++)
+//     sig.push([sig[i-3],sig[i-2],sig[i-1]].reduce((a,b) => a + b))
+//   return sig
+// }
