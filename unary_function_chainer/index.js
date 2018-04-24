@@ -5,17 +5,20 @@
 //
 // d(c(b(a(input))))
 
+function f1(x){ console.log(x*2) }
 
 function chained(functions) {
   //FIXME
-  console.log('i');
+  console.log(functions);
 }
 
 
-function f1(x){ return x*2 }
 function f2(x){ return x+2 }
 function f3(x){ return Math.pow(x,2) }
 
 function f4(x){ return x.split("").concat().reverse().join("").split(" ")}
 function f5(xs){ return xs.concat().reverse() }
 function f6(xs){ return xs.join("_") }
+
+// f1(2)
+chained(f1(2)) // 4
