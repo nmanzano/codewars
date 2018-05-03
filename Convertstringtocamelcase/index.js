@@ -8,28 +8,35 @@
 // link: https://www.codewars.com/kata/convert-string-to-camel-case/train/javascript
 
 function toCamelCase(str){
-
+  if(str === ''){
+      return ''
+  }
   str = str.split('')
-  // console.log(str);
-  str.forEach((x,y) => {
-    if (x === '_') {
-      let num = y + 1
-      let letter = str[num]
-      letter.toUpperCase()
+
+  str = str.filter((x, y) => {
+
+    if (x === '_' || x === '-') {
+      let index = y + 1
+      let item = str[index].toUpperCase()
+
+      str.splice(index, 1, item);
     }
+    return str;
   })
-  console.log(str);
-  // if (str.includes('_')) {
-  //   let num = str.indexOf('_') + 1
-  //   let final = str.charAt(num).toUpperCase()
-  //   let work = str.replace(str[4], final)
-  //   console.log(work);
-  // }
-  // let cheese = str.replace(/_/g, '');
-  // console.log(cheese)
+
+  if (str.includes('_') ) {
+    str = str.join('').replace(/_/g, '');
+  }else if (str.includes('-')) {
+    str = str.join('').replace(/-/g, '');
+  }
+
+console.log(str);
+
 }
 
 // toCamelCase('') //, '', "An empty string was provided but not returned")
-toCamelCase("the_stealth_warrior")//, "theStealthWarrior", "toCamelCase('the_stealth_warrior') did not return correct value")
-// toCamelCase("The-Stealth-Warrior")//, "TheStealthWarrior"//, "toCamelCase('The-Stealth-Warrior') did not return correct value")
-// toCamelCase("A-B-C")//, "ABC", "toCamelCase('A-B-C') did not return correct value")
+// toCamelCase("the_stealth_warrior")//, "theStealthWarrior"
+// toCamelCase("The-Stealth-Warrior")//, "TheStealthWarrior"
+// toCamelCase("A-B-C")//, "ABC"
+// toCamelCase("I-am-a-programmer")//, "IAmAProgrammer"
+toCamelCase("i-am-a-programmer")//, "iAmAProgrammer"
