@@ -9,13 +9,23 @@
 
 function toCamelCase(str){
 
-  if (str.includes('_')) {
-    let num = str.indexOf('_') + 1
-    let final = str.charAt(num).toUpperCase()
-    let work = str.replace(str[4], final)
-    console.log(work);
-  }
-  let cheese = str.replace(/_/g, '');
+  str = str.split('')
+  // console.log(str);
+  str.forEach((x,y) => {
+    if (x === '_') {
+      let num = y + 1
+      let letter = str[num]
+      letter.toUpperCase()
+    }
+  })
+  console.log(str);
+  // if (str.includes('_')) {
+  //   let num = str.indexOf('_') + 1
+  //   let final = str.charAt(num).toUpperCase()
+  //   let work = str.replace(str[4], final)
+  //   console.log(work);
+  // }
+  // let cheese = str.replace(/_/g, '');
   // console.log(cheese)
 }
 
