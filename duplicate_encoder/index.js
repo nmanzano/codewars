@@ -19,7 +19,10 @@
 //   are locked so that's not possible to correct it).
 
 function duplicateEncode(word){
-    // ...
+    word = word.split('')
+    let map1 = word.map(x => '(')
+    map1 = map1.toString('').replace(/,/g, '')
+    console.log(map1)
 }
 
-duplicateEncode("din")//"((("
+duplicateEncode("din") //"((("
